@@ -1,0 +1,10 @@
+<template>
+    <h1>blog</h1>
+
+</template>
+
+<script>
+export default {
+    name: 'BlogPage'
+}
+</script>
