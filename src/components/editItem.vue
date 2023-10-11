@@ -1,4 +1,6 @@
 <template>
+    <h1>edit </h1>
+    
     <h1>ADD NEW ITEM</h1>
 
     <div class="add-item-container">
@@ -35,15 +37,18 @@
         </select>
       </div>
 
-      <button class="btn-submit" type="submit">Add New Item</button>
+      <button class="btn-submit" type="submit">EDIT Item</button>
     </div>
   </div>
+
+
 </template>
 
 <script>
-import { decodeCredential } from "vue3-google-login";
+ import { useRoute } from 'vue-router';
+ import { decodeCredential } from "vue3-google-login";
 export default {
-    name: "addWardrobeItem",
+    name: 'editItem',
     data: () => ({
         error: "",
         item: {
@@ -55,8 +60,7 @@ export default {
         },
         subcategoryOptions: [],
         
-    }),
-    mounted() {
+    }),mounted() {
         // Check if a specific cookie key, 'user_session', exists
         if (this.$cookies.isKey("user_session")) {
             // If the 'user_session' cookie exists, set isLoggedIn to true
@@ -68,30 +72,33 @@ export default {
             // and assign it to the useremail variable
             this.useremail = userData.email;
         }
+        const route = useRoute();
+        // console.log(route.params);
+        console.log('Route param id:', route.params.id);
+            fetch(`http://localhost:4000/singleitem/${route.params.id}`, {
+            })
+            .then(response => response.json())
+            .then(result => {
+                this.item = result[0]
+                this.categoryChanged()
+                console.log('thisresult',result)
+                // console.log(item)
+        })
     },
     methods: {
-        newItem: function () {
-            // Get the user's email address from the component's data
-            const useremail = this.useremail;
-            fetch("http://localhost:4000/addnew", {
-                method: "POST",
+        updateItem: function () {
+            fetch(`http://localhost:4000/singleitem/${this.item._id}`, {
+                method: "PUT", // Specify that this is a POST request.
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "application/json" // Set the request content type to JSON.
                 },
-                body: JSON.stringify({
-                    picture: this.item.picture,
-                    category: this.item.category,
-                    subcategory: this.item.subcategory,
-                    userid: this.item.userid,
-                    useremail: useremail,
-                }),
-            }).then(res => {
-                console.log(res.status);
-                this.item.picture = "";
-                this.item.category = "";
-                this.item.subcategory = "";
-                this.item.userid = "";
-            });
+                body: JSON.stringify(this.item)
+            })
+            .then(() => {
+                this.$router.push({
+                    name: 'singleItem', params: {id:this.item._id}
+                })
+            })
         },
         categoryChanged: function () {
             const selectedCategory = this.item.category;
@@ -110,14 +117,14 @@ export default {
                 this.subcategoryOptions = [];
             }
         },
-    },
-};
+    }
+}
 </script>
-
+<!-- 
 <style scoped>
 
 
-/* Style for the container */
+
 .add-item-container {
   display: flex;
   justify-content: space-between;
@@ -125,7 +132,7 @@ export default {
   margin: 30px;
 }
 
-/* Style for the left column */
+
 .left-column {
   flex: 1;
   padding: 20px;
@@ -134,7 +141,7 @@ export default {
   height: 450px;
 }
 
-/* Style for the right column */
+
 .right-column {
   flex: 1;
   padding: 20px;
@@ -151,9 +158,9 @@ export default {
     align-items: center;
     gap: 10px;
 }
-/* Style for the preview image */
+
 .preview-image {
-  max-width: 200px; /* Adjust the size as needed */
+  max-width: 200px; 
 }
 .btn-submit {
     margin-top: 30px;
@@ -161,4 +168,4 @@ export default {
 .form-group-right {
     margin-bottom: 10px;
    } 
-</style>
+</style> -->

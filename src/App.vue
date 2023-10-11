@@ -1,22 +1,20 @@
 <template>
-  <header>
+  <!-- <header>
     <div class="header-wrapper">
     <div class="top-bar">
       <h1>Outfit Forecast</h1>
     </div>
     <nav class="bottom-bar">
       <div class="links">
-        <!-- <router-link to="/">Home</router-link> -->
         <p>Home</p>
         <p>Blog</p>
         <p>Marketplace</p>
         
-        <!-- Add other links as needed -->
       </div>
     </nav>
-  </div>
+  </div> -->
 
-  </header>
+  <!-- </header> -->
   <main>
     <router-view :key="$route.path" />
   </main>

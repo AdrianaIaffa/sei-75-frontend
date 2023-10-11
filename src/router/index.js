@@ -5,6 +5,8 @@ import addBlogPost from '../components/addblogpost'
 import BlogPage from '../components/blogPage'
 import homeUserPage from '../components/homeUserPage'
 import allWardrobeItems from '../components/allitems'
+import singleItem from '../components/singleitem'
+import editItem from '../components/editItem'
 
 
 const routes = [
@@ -35,8 +37,18 @@ const routes = [
     },
     {
         name: 'allWardrobeItems',
-        path: '/allitems',
+        path: '/allitems/:email',
         component: allWardrobeItems
+    },
+    {
+        name: 'singleItem',
+        path: '/singleitem/:id',
+        component: singleItem
+    },
+    {
+        name: 'editItem',
+        path: '/editItem/:id',
+        component: editItem
     }
 ]
 

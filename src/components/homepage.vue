@@ -16,7 +16,9 @@
             </nav>
         </div>
     </header>
-<main></main>
+    <main>
+      
+    </main>
      <footer>
         <div class="footer-content">
             <p>insta</p>
@@ -48,6 +50,7 @@
   justify-content: center; 
   align-items: center;
   flex: 1; 
+  
 }
 .links p {
   margin-left: 10px; 
