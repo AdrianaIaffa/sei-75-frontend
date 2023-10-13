@@ -11,7 +11,7 @@
   </div>
 </header>
 
-    <div class="mainuser">
+    <!-- <div class="mainuser">
         <div class="dashboard">
             <nav class="top-nav">
                 <div class="nav-left">Adriana{{ userName }}</div>
@@ -19,7 +19,7 @@
                     <router-link to="/user/blog" class="nav-right-link" >Blog</router-link>
                     <router-link to="/user/marketplace" class="nav-right-link">Marketplace</router-link>
                     <span @click="handleLogout" class="nav-right-link">Logout</span>
-                    <!-- <button @click="handleLogout">Logout</button> -->
+                   
                 </div>
             </nav>
         </div>
@@ -27,24 +27,25 @@
         <div class="main-content">
             <nav class="vertical-nav">
                 <ul>
-                  <li @click="loadComponent('AddNew')">Add New Item</li>
+                  <li><router-link to="/addnew">Add New</router-link></li>
                     <li><router-link to="/editItem">Edit Item</router-link></li>
                     <li><router-link to="/allitems/:email">View Wardrobe</router-link></li>
-                    <!-- <ul v-if="subcategories.wardrobe" class="subcategories">
+                    <ul v-if="subcategories.wardrobe" class="subcategories">
                       <li>Tops</li>
                       <li>Bottoms</li>
                       <li>Outwear</li>
                       <li>Shoes</li>
                       <li>Accessories</li>
-                    </ul> -->
+                    </ul>
                     <li><router-link to="/singleItem/:id">View Garment</router-link></li>
-                    <!-- <li><router-link to="/addblogpost">New Blog Post</router-link></li>
-                    <li><router-link to="/user/your-blog-posts">Your Blog Posts</router-link></li> -->
+
                 </ul>
             </nav>
-            <component :is="activeComponent"></component>
+          <div class="addnew-content">
+          
+          </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script>
@@ -65,14 +66,14 @@ export default {
   //   },
   // }
     }),
-  methods: {
-    loadComponent(addWardrobeItem) {
-      this.activeComponent = addWardrobeItem; // Set the active component based on what's clicked
-    },
-    toggleSubcategories(category) {
-    this.subcategories[category] = !this.subcategories[category];
-  },
-  }
+  // methods: {
+  //   loadComponent(addWardrobeItem) {
+  //     this.activeComponent = addWardrobeItem; // Set the active component based on what's clicked
+  //   },
+  //   toggleSubcategories(category) {
+  //   this.subcategories[category] = !this.subcategories[category];
+  // },
+  // }
   // ,
   // components: {
   //   'addWardrobeItem'  
@@ -185,6 +186,11 @@ a, .router-link-exact-active {
 .nav-right-link:hover {
   color: red; 
 
+}
+
+addnew-content {
+  flex: 1; /* Take up the remaining space */
+  padding: 20px; /* Add some padding for spacing */
 }
 
 </style>

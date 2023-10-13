@@ -34,7 +34,7 @@
 </template>
 
 <script>
-
+import { decodeCredential } from "vue3-google-login";
 export default {
     name: 'addBlogPost',
     data: () => ({
@@ -42,27 +42,47 @@ export default {
         post: {
             title: '',
             content: '',
-            author: ''
+            userid: '',
+            picture: '',
+            useremail: '',
+
         }
     }),
+    mounted() {
+        // Check if a specific cookie key, 'user_session', exists
+        if (this.$cookies.isKey("user_session")) {
+            // If the 'user_session' cookie exists, set isLoggedIn to true
+            this.isLoggedIn = true;
+            // Get the value of the 'user_session' cookie and decode its content
+            const userData = decodeCredential(this.$cookies.get("user_session"));
+            console.log(userData)
+            // Extract the 'email' property from the decoded user data
+            // and assign it to the useremail variable
+            this.useremail = userData.email;
+        }
+    },
     methods: {
         newBlogPost: function () {
+         
+          console.log(this.useremail)
             fetch('http://localhost:4000/addblogpost', {
-                method: "POST",
+              method: "POST",
                 headers: {
-                    "Content-Type": "appication/json"
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    title: this.post.title,
+                  title: this.post.title,
                     content: this.post.content,
-                    author: this.author.userid
+                    picture: this.post.picture,
+                    useremail: this.useremail,
                 })
             })
             .then(res => {
                 console.log(res.status);
                 this.post.title = ''
                 this.post.content = ''
-                this.author.userid = ''
+                this.post.picture = ''
+                this.post.userid = ''
             })
         }, bold() {
             document.execCommand('bold', false, null);

@@ -87,6 +87,7 @@
              })
              .then(() => {
                  console.log('session saved')
+                 this.$router.push({ name: 'addWardrobeItem' });
              })
          },
          handleLogOut: function () {

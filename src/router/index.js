@@ -7,6 +7,9 @@ import homeUserPage from '../components/homeUserPage'
 import allWardrobeItems from '../components/allitems'
 import singleItem from '../components/singleitem'
 import editItem from '../components/editItem'
+import homePage from '../components/homePage'
+import outfitPlanner from '../components/outfitPlanner'
+import blogPost from '../components/blogPost'
 
 
 const routes = [
@@ -36,6 +39,11 @@ const routes = [
         component: homeUserPage
     },
     {
+        name: 'blogPost',
+        path: '/blogPost',
+        component: blogPost
+    },
+    {
         name: 'allWardrobeItems',
         path: '/allitems/:email',
         component: allWardrobeItems
@@ -49,6 +57,16 @@ const routes = [
         name: 'editItem',
         path: '/editItem/:id',
         component: editItem
+    },
+    {
+        name: 'homePage',
+        path: '/homePage.vue',
+        component: homePage
+    },
+    {
+        name: 'outfitPlanner',
+        path: '/outfitPlanner',
+        component: outfitPlanner
     }
 ]
 

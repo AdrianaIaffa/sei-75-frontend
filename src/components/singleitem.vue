@@ -1,6 +1,38 @@
 <template>
-      <div>
-    <h1>Single Item</h1>
+
+<div class="mainuser">
+        <div class="dashboard">
+            <nav class="top-nav">
+                <div class="nav-left">Adriana{{ userName }}</div>
+                <div class="nav-right">
+                    <router-link to="/user/blog" class="nav-right-link" >Blog</router-link>
+                    <router-link to="/user/marketplace" class="nav-right-link">Marketplace</router-link>
+                    <span @click="handleLogout" class="nav-right-link">Logout</span>
+                   
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-content">
+            <nav class="vertical-nav">
+                <ul>
+                  <li><router-link to="/addnew">Add New</router-link></li>
+                    <!-- <li><router-link to="/editItem">Edit Item</router-link></li> -->
+                    <li><router-link to="/allitems/:email">View Wardrobe</router-link></li>
+                    <!-- <ul v-if="subcategories.wardrobe" class="subcategories">
+                      <li>Tops</li>
+                      <li>Bottoms</li>
+                      <li>Outwear</li>
+                      <li>Shoes</li>
+                      <li>Accessories</li>
+                    </ul>
+                    <li><router-link to="/singleItem/:id">View Garment</router-link></li> -->
+
+                </ul>
+            </nav>
+          <div class="addnew-content">
+            <div>
+    <!-- <h1>Single Item</h1> -->
     <div class="card">
       <div v-for="id in item" :key="id._id" class="item-container">
         <img class="item-picture" :src="id.picture" alt="Wardrobe Item" />
@@ -9,16 +41,21 @@
           <p>Subcategory: {{ id.subcategory }}</p>
         </div>
         <div class="item-actions">
-          <router-link :to="'/editItem/' + id._id" class="action-button edit-button">
+          <router-link :to="'/editItem/' + id._id" class="action-button">
             Edit Item
           </router-link>
-          <button class="action-button delete-button" @click="deleteItem(id._id)">
+          <button class="action-button" @click="deleteItem(id._id)">
             Delete Item
           </button>
         </div>
       </div>
     </div>
   </div>
+          </div>
+        </div>
+    </div>
+
+      
 </template>
 
 <script>
@@ -55,12 +92,12 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .card {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px;
+ 
   /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
 }
 
@@ -83,11 +120,10 @@ export default {
 
 .item-actions {
   display: flex;
-  align-items: center;
   margin-top: 10px;
 }
 
-.action-button {
+.action-button  {
   padding: 10px 20px;
   margin-right: 10px;
   background-color: #333;
@@ -98,8 +134,85 @@ export default {
   border-radius: 4px;
 }
 
-.edit-button:hover,
+/* .edit-button:hover,
 .delete-button:hover {
   background-color: #5D5955;
+} */
+
+
+.top-nav {
+  background-color: #333 ;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.vertical-nav {
+  /* background-color: #eee; */
+  width: 200px;
+  padding: 20px;
+  height: 100vh;
+  /* box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);  */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+
+}
+
+.vertical-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.vertical-nav li {
+  margin-bottom: 10px;
+  transition: background-color 0.1s; 
+  padding: 5px;
+  /* width: 100%;
+  display: block; */
+}
+.vertical-nav li:hover {
+  background-color: #efefef; 
+  color: black;
+  /* width: 100%; */
+}
+
+a, .router-link-exact-active {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-right-link {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px; 
+  cursor: pointer; 
+}
+.nav-right-link:hover {
+  color: red; 
+
+}
+.addnew-content {
+  flex: 1; 
+  padding: 20px;
+  width: 100%;
+}
+
 </style>

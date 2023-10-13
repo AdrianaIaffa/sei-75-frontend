@@ -1,23 +1,43 @@
 <template>
-    <header>
+    <!-- <header>
         <div class="header-wrapper">
         <div class="top-bar">
         <h1>Outfit Forecast</h1>
         </div>
             <nav class="bottom-bar">
             <div class="links">
-                <!-- <router-link to="/">Home</router-link> -->
+             
                 <p>Home</p>
                 <p>Blog</p>
                 <p>Marketplace</p>
                 
-                <!-- Add other links as needed -->
+              
             </div>
             </nav>
         </div>
-    </header>
-    <main>
+    </header> -->
+   
       
+      <main>
+      <!-- Landing Page Section with Image -->
+      <section class="landing-section">
+        <div class="landing-image">
+          <!-- <img src="/path/to/your-image.jpg" alt="Landing Image" /> -->
+        </div>
+      </section>
+
+      <!-- Welcome to Outfit Forecast Section -->
+      <section class="welcome-section">
+        <div class="welcome-text">
+          <h2>Welcome to Outfit Forecast</h2>
+          <p>Explain what fashion forecast is here.</p>
+        </div>
+        <div class="welcome-images">
+          <!-- Add images or content here -->
+        </div>
+      </section>
+
+
     </main>
      <footer>
         <div class="footer-content">
@@ -26,6 +46,13 @@
     </footer>
 </template>
 
+
+<script>
+export default {
+  name: 'homePage',
+
+}
+</script>
 
 
 <style scoped>

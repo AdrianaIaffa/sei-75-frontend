@@ -1,22 +1,13 @@
 <template>
-  <!-- <header>
-    <div class="header-wrapper">
-    <div class="top-bar">
-      <h1>Outfit Forecast</h1>
-    </div>
-    <nav class="bottom-bar">
-      <div class="links">
-        <p>Home</p>
-        <p>Blog</p>
-        <p>Marketplace</p>
-        
-      </div>
-    </nav>
-  </div> -->
+  <HomeUserPage/>
+  <UserHeader v-if="isLoggedIn"/>
 
-  <!-- </header> -->
   <main>
-    <router-view :key="$route.path" />
+   
+    <section>
+      <router-view :key="$route.path" />
+    </section>
+    
   </main>
 
  
@@ -24,8 +15,28 @@
 
 <script>
 
+import UserHeader from './components/buildingblocks/userHeader.vue';
+import HomeUserPage from './components/homeUserPage.vue';
+ import { decodeCredential } from 'vue3-google-login'
+
 export default {
-  name: 'App'
+    name: 'App',
+    components: { HomeUserPage, UserHeader },
+    data: () => ({
+    isLoggedIn: false,
+  }),
+  mounted() {
+        // Check if a specific cookie key, 'user_session', exists
+         if (this.$cookies.isKey('user_session')) {
+            // If the 'user_session' cookie exists, set isLoggedIn to true
+             this.isLoggedIn = true
+             // Get the value of the 'user_session' cookie and decode its content
+             const userData = decodeCredential(this.$cookies.get('user_session'))
+             // Extract the 'given_name' property from the decoded user data
+            // and assign it to the userName variable
+             this.userName = userData.given_name
+         }
+     },
 }
 </script>
 
@@ -41,13 +52,13 @@ export default {
 /* main {
   height: 100vh;
 } */
-.header-wrapper {
+/* .header-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Align top and bottom bars */
+  justify-content: space-between;
   height: 100px;
   border-bottom: 3px solid #efefef;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2); /* Add shadow to the bottom border */
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2); 
 
 }
 .top-bar {
@@ -72,7 +83,7 @@ export default {
   justify-content: center; 
   padding-top: 40px;
   height: 50%; 
-}
+} */
 
 /* footer {
   height: 80px; 
