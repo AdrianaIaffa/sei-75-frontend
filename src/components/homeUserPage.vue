@@ -1,4 +1,5 @@
-<template><header>
+<template>
+<header>
   <div class="header-wrapper">
   <div class="top-bar">
   <h1>Outfit Forecast</h1>

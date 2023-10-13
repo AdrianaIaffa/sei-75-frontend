@@ -10,6 +10,7 @@ import editItem from '../components/editItem'
 import homePage from '../components/homePage'
 import outfitPlanner from '../components/outfitPlanner'
 import blogPost from '../components/blogPost'
+import allOutfits from '../components/allOutfits'
 
 
 const routes = [
@@ -45,7 +46,7 @@ const routes = [
     },
     {
         name: 'allWardrobeItems',
-        path: '/allitems/:email',
+        path: '/allitems/:userEmail',
         component: allWardrobeItems
     },
     {
@@ -67,6 +68,11 @@ const routes = [
         name: 'outfitPlanner',
         path: '/outfitPlanner',
         component: outfitPlanner
+    },
+    {
+        name: 'allOutfits',
+        path: '/allOutfits/:email',
+        component: allOutfits
     }
 ]
 

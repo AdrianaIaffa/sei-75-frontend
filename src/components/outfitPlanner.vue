@@ -52,16 +52,11 @@
     <img :src="selectedItem.picture" :alt="selectedItem.category" />
     <button @click="removeSelectedItem(index)">Remove</button>
   </div>
-  
-  <button @click="toggleItemsEditable">outfi done</button>
-  <div v-if="editOutfitName">
+  <button @click="toggleItemsEditable">outfit done</button>
+  <div>
       <input v-model="outfitName" placeholder="Enter outfit name" />
-      <button @click="toggleEditOutfitName">{{ editOutfitName ? 'Save' : 'Edit Outfit Name' }}</button>
-
     </div>
   </div>
-
-
 
 <div v-else>
   <!-- Non-editable selected items -->
@@ -69,10 +64,8 @@
     <img :src="selectedItem.picture" :alt="selectedItem.category" />
   </div>
 </div>
-<div v-if="!editOutfitName">
+<div>
     <p>Outfit Name: {{ outfitName }}</p>
-    <button @click="toggleEditOutfitName">{{ editOutfitName ? 'Save' : 'Edit Outfit Name' }}</button>
-
   </div>
 <button @click="saveOutfit">Save Outfit</button>
     </div>
@@ -130,19 +123,15 @@ export default {
     selectedItems: [], 
     itemsEditable: true,
     outfitName: "", // Initial outfit name
-    editOutfitName: true, // Initially not editing outfit name
-    showSaveButton: false, // Initially hide save button
   }),
   mounted() {
     if (this.$cookies.isKey("user_session")) {
       this.isLoggedIn = true;
 
       const userData = decodeCredential(this.$cookies.get("user_session"));
-      console.log(userData);
 
       this.useremail = userData.email;
       this.userName = userData.given_name;
-      console.log(userData.email);
     }
     const route = useRoute();
     console.log("this is the route", route)
@@ -151,7 +140,7 @@ export default {
       .then((result) => {
         // this.items = categorizeItems(result);
         this.items = result;
-        console.log(result.wardrobeItems);
+        // console.log(result.wardrobeItems);
       });
   },
   computed: {
@@ -209,10 +198,17 @@ export default {
     this.selectedItems.splice(index, 1);
   },  toggleItemsEditable() {
     this.itemsEditable = !this.itemsEditable;
+    // if (!this.itemsEditable)
   },
   saveOutfit: function () {
+    console.log("saveOutfit method called");
+
             // Get the user's email address from the component's data
             const useremail = this.useremail;
+            // console.log("Data being sent in the request body:");
+  
+  console.log("selectedItems:", this.selectedItems);
+  
             fetch("http://localhost:4000/outfitPlanner", {
     method: "POST",
     headers: {
@@ -232,6 +228,7 @@ export default {
         console.log("Saved outfit");
     } else {
         console.error("Failed to save outfit");
+        console.log(res)
     }
 })
 .catch(error => {

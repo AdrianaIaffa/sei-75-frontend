@@ -89,7 +89,7 @@ export default {
             picture: "",
             category: "",
             subcategory: "",
-            userid: "",
+            // userid: "",
             useremail: "",
         },
         subcategoryOptions: [],
@@ -121,7 +121,7 @@ export default {
                     picture: this.item.picture,
                     category: this.item.category,
                     subcategory: this.item.subcategory,
-                    userid: this.item.userid,
+                    // userid: this.item.userid,
                     useremail: useremail,
                 }),
             }).then(res => {
@@ -129,7 +129,7 @@ export default {
                 this.item.picture = "";
                 this.item.category = "";
                 this.item.subcategory = "";
-                this.item.userid = "";
+                // this.item.userid = "";
             });
         },
         categoryChanged: function () {

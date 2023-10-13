@@ -59,7 +59,7 @@
 <script>
 // console.log('Item:', item);
 // console.log('Item _id:', item._id);
-import { decodeCredential, googleLogout } from "vue3-google-login";
+import { decodeCredential } from "vue3-google-login";
 import { useRoute } from "vue-router";
 export default {
   name: "allWardrobeItems",
@@ -80,24 +80,45 @@ export default {
       this.useremail = userData.email;
       this.userName = userData.given_name;
       console.log(userData.email);
+      const useremail = userData.email
+      console.log("this is the const", useremail)
     }
     const route = useRoute();
-    fetch(`http://localhost:4000/allitems/${route.params.useremail}`, {})
+    console.log(route)
+    console.log('User Email:', this.useremail); 
+    const useremail = this.useremail
+    console.log("this is inside fetch", useremail)
+
+
+    fetch(`http://localhost:4000/allitems/${route.params.useremail}` 
+    // {
+    //              method: 'POST',
+    //              headers: {
+    //                  "Content-Type": "application/json"
+    //              },
+    //              body: JSON.stringify({
+    //                  email: this.useremail
+    //              })
+    //          }
+             )
       .then((response) => response.json())
       .then((result) => {
         this.items = result;
         console.log(result);
-      });
+      })
+      .catch((error) => {
+    console.error("Error fetching wardrobe items:", error);
+  });
   },
-  methods: {
-    handleLogout: function () {
-      googleLogout();
-      this.$cookies.remove("user_session");
-      this.isLoggedIn = false;
-      this.userName = "";
-      this.$router.push({ name: "loginPage" });
-    },
-  },
+//   methods: {
+//     handleLogout: function () {
+//       googleLogout();
+//       this.$cookies.remove("user_session");
+//       this.isLoggedIn = false;
+//       this.userName = "";
+//       this.$router.push({ name: "loginPage" });
+//     },
+//   },
 };
 </script>
 <style scoped>
