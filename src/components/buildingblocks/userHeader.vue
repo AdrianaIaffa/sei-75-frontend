@@ -3,10 +3,11 @@
     <nav class="top-nav">
       <div class="nav-left">{{ userName }}</div>
       <div class="nav-right">
+        <router-link :to="`/allOutfits/${useremail}`">alloutfits</router-link>
+        <router-link :to="`/outfitPlanner/${useremail}`">allplanner</router-link>
+        <router-link :to="`/allitems/${useremail}`">View Wardrobe</router-link>
         <router-link to="/blogPage" class="nav-right-link">Blog</router-link>
-        <router-link to="/marketplace" class="nav-right-link"
-          >Marketplace</router-link
-        >
+        <router-link to="/marketplace" class="nav-right-link">Marketplace</router-link>
         <span @click="handleLogout" class="nav-right-link">Logout</span>
       </div>
     </nav>
@@ -15,15 +16,20 @@
 <script>
 import { decodeCredential, googleLogout } from "vue3-google-login";
 // import { useRoute } from "vue-router";
+import { ref } from "vue"
 
 export default {
   name: "userHeader",
   data: () => ({
     error: "",
-    useremail: "",
+    // useremail: "",
     isLoggedIn: false,
     userName: "",
   }),
+    setup() {
+        const useremail = ref('')
+        return { useremail }
+    },
   mounted() {
     if (this.$cookies.isKey("user_session")) {
       this.isLoggedIn = true;

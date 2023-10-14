@@ -100,13 +100,14 @@
 // console.log('Item:', item);
 // console.log('Item _id:', item._id);
 import { decodeCredential, googleLogout } from "vue3-google-login";
-import { useRoute } from "vue-router";
+// import { useRoute } from "vue-router";
+import { ref } from "vue"
 export default {
   name: "outfitPlanner",
   data: () => ({
     error: "",
     items: {},
-    useremail: "",
+    // useremail: "",
     isLoggedIn: false,
     userName: "",
     categories: {},
@@ -123,7 +124,10 @@ export default {
     selectedItems: [], 
     itemsEditable: true,
     outfitName: "", // Initial outfit name
-  }),
+  }), setup() {
+        const useremail = ref('')
+        return { useremail }
+    },
   mounted() {
     if (this.$cookies.isKey("user_session")) {
       this.isLoggedIn = true;
@@ -133,9 +137,9 @@ export default {
       this.useremail = userData.email;
       this.userName = userData.given_name;
     }
-    const route = useRoute();
-    console.log("this is the route", route)
-    fetch(`http://localhost:4000/allitems/${route.params.useremail}`, {})
+    // const route = useRoute();
+    // console.log("this is the route", route)
+    fetch(`http://localhost:4000/allitems/${this.useremail}`, {})
       .then((response) => response.json())
       .then((result) => {
         // this.items = categorizeItems(result);
@@ -193,8 +197,11 @@ export default {
       this.selectedCategory = category;
     },
     selectItem(item) {
-        this.selectedItems.push(item);
-    },removeSelectedItem(index) {
+        this.selectedItems.push(item)
+        console.log("Selected items:", this.selectedItems); // Add this line for debugging
+
+    },
+    removeSelectedItem(index) {
     this.selectedItems.splice(index, 1);
   },  toggleItemsEditable() {
     this.itemsEditable = !this.itemsEditable;
@@ -209,7 +216,8 @@ export default {
   
   console.log("selectedItems:", this.selectedItems);
   
-            fetch("http://localhost:4000/outfitPlanner", {
+            fetch(`http://localhost:4000/outfitPlanner/${this.useremail}`
+            , {
     method: "POST",
     headers: {
         "Content-Type": "application/json",

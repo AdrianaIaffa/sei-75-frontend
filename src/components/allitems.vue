@@ -60,7 +60,7 @@
 // console.log('Item:', item);
 // console.log('Item _id:', item._id);
 import { decodeCredential } from "vue3-google-login";
-import { useRoute } from "vue-router";
+// import { useRoute } from "vue-router";
 export default {
   name: "allWardrobeItems",
   data: () => ({
@@ -83,24 +83,12 @@ export default {
       const useremail = userData.email
       console.log("this is the const", useremail)
     }
-    const route = useRoute();
-    console.log(route)
-    console.log('User Email:', this.useremail); 
-    const useremail = this.useremail
-    console.log("this is inside fetch", useremail)
-
-
-    fetch(`http://localhost:4000/allitems/${route.params.useremail}` 
-    // {
-    //              method: 'POST',
-    //              headers: {
-    //                  "Content-Type": "application/json"
-    //              },
-    //              body: JSON.stringify({
-    //                  email: this.useremail
-    //              })
-    //          }
-             )
+    // const route = useRoute();
+    // console.log(route)
+    // console.log('User Email:', this.useremail); 
+    // const useremail = this.useremail
+    // console.log("this is inside fetch", useremail)
+    fetch(`http://localhost:4000/allitems/${this.useremail}`)
       .then((response) => response.json())
       .then((result) => {
         this.items = result;

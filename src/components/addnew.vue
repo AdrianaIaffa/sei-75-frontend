@@ -18,7 +18,9 @@
                 <ul>
                   <li><router-link to="/addnew">Add New</router-link></li>
                     <!-- <li><router-link to="/editItem">Edit Item</router-link></li> -->
-                    <li><router-link to="/allitems/:email">View Wardrobe</router-link></li>
+                    <li><router-link :to="`/allitems/${useremail}`">View Wardrobe</router-link></li>
+                    <li><router-link :to="`/outfitPlanner/${useremail}`">allplanner</router-link></li>
+                    <li><router-link :to="`/allOutfits/${useremail}`">alloutfits</router-link></li>
                     <!-- <ul v-if="subcategories.wardrobe" class="subcategories">
                       <li>Tops</li>
                       <li>Bottoms</li>
@@ -81,6 +83,7 @@
 
 <script>
 import { decodeCredential } from "vue3-google-login";
+import { ref } from "vue"
 export default {
     name: "addWardrobeItem",
     data: () => ({
@@ -90,11 +93,15 @@ export default {
             category: "",
             subcategory: "",
             // userid: "",
-            useremail: "",
+            // useremail: "",
         },
         subcategoryOptions: [],
         
     }),
+    setup() {
+        const useremail = ref('')
+        return { useremail }
+    },
     mounted() {
         // Check if a specific cookie key, 'user_session', exists
         if (this.$cookies.isKey("user_session")) {
@@ -106,6 +113,7 @@ export default {
             // Extract the 'email' property from the decoded user data
             // and assign it to the useremail variable
             this.useremail = userData.email;
+           
         }
     },
     methods: {

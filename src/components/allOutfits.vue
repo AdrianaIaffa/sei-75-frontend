@@ -22,14 +22,20 @@
 
 <script>
 import { decodeCredential } from "vue3-google-login";
-import { useRoute } from "vue-router";
+import { ref } from "vue"
+
+// import { useRoute } from "vue-router";
 export default {
     name: 'allOutfits',
     data: () => ({
     error: "",
     outfits: {},
-    useremail: "",
+    // useremail: "",
   }),
+  setup() {
+        const useremail = ref('')
+        return { useremail }
+    },
   mounted() {
     if (this.$cookies.isKey("user_session")) {
       this.isLoggedIn = true;
@@ -41,8 +47,8 @@ export default {
       this.userName = userData.given_name;
       console.log(userData.email);
     }
-    const route = useRoute();
-    fetch(`http://localhost:4000/allOutfits/${route.params.useremail}`)
+    // const route = useRoute();
+    fetch(`http://localhost:4000/allOutfits/${this.useremail}`)
       .then((response) => response.json())
       .then((result) => {
         this.outfits = result;

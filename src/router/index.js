@@ -66,12 +66,12 @@ const routes = [
     },
     {
         name: 'outfitPlanner',
-        path: '/outfitPlanner',
+        path: '/outfitPlanner/:userEmail',
         component: outfitPlanner
     },
     {
         name: 'allOutfits',
-        path: '/allOutfits/:email',
+        path: '/allOutfits/:userEmail',
         component: allOutfits
     }
 ]
