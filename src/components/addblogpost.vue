@@ -131,7 +131,7 @@ export default {
 }
 .form-input-content {
     height: 50vh;
-    border: 1px solid black;
+    border: 1px solid #efefef;
     text-align: left; 
     padding: 10px;
     margin-bottom: 20px;

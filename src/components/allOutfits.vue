@@ -1,21 +1,20 @@
 <template>
 
-<h1>hello</h1>
-  <div>
-    <h1>Your Outfits</h1>
-    <ul class="outfits-list">
-      <li v-for="(outfit, index) in outfits" :key="index" class="outfit-item">
-        <h2>{{ outfit.name }}</h2>
+  <div class="page-content">
+   <!-- <div class="item-card"></div> -->
+
+      <div v-for="outfit in outfits.outfitItems" class="item-container" :key="outfit._id">
+        <h2>{{ outfit.outfitName }}</h2>
         <!-- Add this block of code to log selectedItems -->
-        <ul>
-          <li v-for="(item, itemIndex) in outfit.selectedItems" :key="itemIndex">
-            <!-- Log selectedItems here -->
-            <img :src="item.picture" :alt="item.category" class="outfit-item-image" />
-          </li>
-        </ul>
+        <div class="image-container">
+        <div v-for="selectedItem in outfit.selectedItems" :key="selectedItem._id" >
+        <img :src="selectedItem.picture" :alt="selectedItem.category" class="item-picture" />
+      </div>
+    </div>
+          </div>
+       
         <!-- End of log block -->
-      </li>
-    </ul>
+     
   </div>
 
 </template>
@@ -29,7 +28,7 @@ export default {
     name: 'allOutfits',
     data: () => ({
     error: "",
-    outfits: {},
+    outfits: [],
     // useremail: "",
   }),
   setup() {
@@ -54,7 +53,7 @@ export default {
         this.outfits = result;
         // console.log(result);
         console.log("Outfits data:", this.outfits)
-        console.log("Outfits data:", this.outfits);
+        console.log("Outfits data:", result);
 
 
       });
@@ -63,31 +62,33 @@ export default {
 </script>
 
 <style scoped>
-.outfits-list {
-  list-style: none;
-  padding: 0;
+
+.page-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center items horizontally */
+  margin: 0 -10px; /* Negative margin to counteract box-shadow */
+}
+ 
+  
+.item-container {
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #efefef;
+    width: 40%;
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center items horizontally */
+ 
+  }
+ .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.outfit-item {
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #f9f9f9;
-}
-
-.outfit-item h2 {
-  margin: 0;
-  font-size: 1.2rem;
-}
-
-.outfit-item ul {
-  list-style: none;
-  padding: 0;
-}
-
-.outfit-item-image {
-  max-width: 100px;
-  max-height: 100px;
-  margin-right: 10px;
-}
+  .item-picture {
+  width: 100px;
+  }
 </style>

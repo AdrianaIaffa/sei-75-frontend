@@ -1,13 +1,15 @@
 <template>
+    <header></header>
   <div class="dashboard">
     <nav class="top-nav">
       <div class="nav-left">{{ userName }}</div>
       <div class="nav-right">
-        <router-link :to="`/allOutfits/${useremail}`">alloutfits</router-link>
-        <router-link :to="`/outfitPlanner/${useremail}`">allplanner</router-link>
-        <router-link :to="`/allitems/${useremail}`">View Wardrobe</router-link>
-        <router-link to="/blogPage" class="nav-right-link">Blog</router-link>
-        <router-link to="/marketplace" class="nav-right-link">Marketplace</router-link>
+        <router-link :to="`/allOutfits/${useremail}`" class="nav-right-link">View Fits</router-link>
+        <router-link :to="`/outfitPlanner/${useremail}`" class="nav-right-link">Plan Your Outfit</router-link>
+        <router-link :to="`/allitems/${useremail}`" class="nav-right-link">View Wardrobe</router-link>
+        <router-link to="/addnew" class="nav-right-link">Add To Wardrobe</router-link>
+        <!-- <router-link to="/blogPage" class="nav-right-link">Blog</router-link>
+        <router-link to="/marketplace" class="nav-right-link">Marketplace</router-link> -->
         <span @click="handleLogout" class="nav-right-link">Logout</span>
       </div>
     </nav>
@@ -65,7 +67,9 @@ export default {
   flex-direction: row;
   justify-content: space-between;
 }
-
+.nav-left {
+  padding-left: 20px;
+}
 .nav-right {
   display: flex;
   justify-content: flex-end;

@@ -1,35 +1,10 @@
 <template>
 
 <div class="mainuser">
-        <div class="dashboard">
-            <nav class="top-nav">
-                <div class="nav-left">Adriana{{ userName }}</div>
-                <div class="nav-right">
-                    <router-link to="/user/blog" class="nav-right-link" >Blog</router-link>
-                    <router-link to="/user/marketplace" class="nav-right-link">Marketplace</router-link>
-                    <span @click="handleLogout" class="nav-right-link">Logout</span>
-                   
-                </div>
-            </nav>
-        </div>
+      
 
         <div class="main-content">
-            <nav class="vertical-nav">
-                <ul>
-                  <li><router-link to="/addnew">Add New</router-link></li>
-                    <!-- <li><router-link to="/editItem">Edit Item</router-link></li> -->
-                    <li><router-link to="/allitems/:email">View Wardrobe</router-link></li>
-                    <!-- <ul v-if="subcategories.wardrobe" class="subcategories">
-                      <li>Tops</li>
-                      <li>Bottoms</li>
-                      <li>Outwear</li>
-                      <li>Shoes</li>
-                      <li>Accessories</li>
-                    </ul>
-                    <li><router-link to="/singleItem/:id">View Garment</router-link></li> -->
-
-                </ul>
-            </nav>
+            
           <div class="addnew-content">
             <div>
     <!-- <h1>Single Item</h1> -->
@@ -87,7 +62,19 @@ export default {
                 this.item = result
                 console.log(result)
         })
-        }
+        }, methods: {
+          deleteItem: function () {
+            console.log(this.title._id)
+            const route = useRoute()
+            // fetch(`http://localhost:4000/books/titledetails/${route.params.id}`,{
+            fetch(`http://localhost:4000/singleitem/${route.params.id}`,{
+                method: "DELETE"
+            })
+            .then(() => {
+                this.$router.replace({name: 'allWardrobeItems'})
+            })
+        } 
+    }
 }
 
 </script>
