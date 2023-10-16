@@ -236,7 +236,7 @@ a,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-image: url("@/assets/landingpage.png");
+  background-image: url("https://i.imgur.com/iwQarAd.png");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
