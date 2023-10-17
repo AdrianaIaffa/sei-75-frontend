@@ -43,7 +43,7 @@
         this.userName = userData.given_name;
       }
   
-      fetch(`http://localhost:4000/allitems/${this.useremail}`)
+      fetch(`${process.env.VUE_APP_BACKEND_API}/allitems/${this.useremail}`)
         .then((response) => response.json())
         .then((result) => {
           this.items = result;

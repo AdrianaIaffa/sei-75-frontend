@@ -70,7 +70,7 @@
       }
       const route = useRoute();
       console.log("Route param id:", route.params.id);
-      fetch(`http://localhost:4000/singleitem/${route.params.id}`, {})
+      fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${route.params.id}`, {})
         .then((response) => response.json())
         .then((result) => {
           this.item = result[0];
@@ -79,7 +79,7 @@
     },
     methods: {
       updateItem: function () {
-        fetch(`http://localhost:4000/singleitem/${this.item._id}`, {
+        fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${this.item._id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

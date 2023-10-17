@@ -84,7 +84,7 @@ export default {
   methods: {
     newItem: function () {
       const useremail = this.useremail;
-      fetch("http://localhost:4000/addnew", {
+      fetch(`${process.env.VUE_APP_BACKEND_API}/addnew`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

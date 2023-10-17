@@ -17,7 +17,7 @@ export default {
     posts: [],
   }),
   mounted() {
-    fetch(`http://localhost:4000/blogPage`)
+    fetch(`${process.env.VUE_APP_BACKEND_API}/blogPage`)
       .then(response => response.json())
       .then(result => {
         this.posts = result;

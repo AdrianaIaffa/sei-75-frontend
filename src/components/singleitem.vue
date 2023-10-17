@@ -67,7 +67,7 @@ export default {
             console.log(this.title._id)
             const route = useRoute()
             // fetch(`http://localhost:4000/books/titledetails/${route.params.id}`,{
-            fetch(`http://localhost:4000/singleitem/${route.params.id}`,{
+            fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${route.params.id}`,{
                 method: "DELETE"
             })
             .then(() => {

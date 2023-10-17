@@ -68,7 +68,7 @@ export default {
    newBlogPost() {
     const contentWithLineBreaks = this.post.content.replace(/\n/g, "<br>");
 
-     fetch('http://localhost:4000/addblogpost', {
+     fetch(`${process.env.VUE_APP_BACKEND_API}/addblogpost`, {
        method: "POST",
        headers: {
          "Content-Type": "application/json",

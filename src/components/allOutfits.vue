@@ -47,7 +47,7 @@ export default {
       console.log(userData.email);
     }
     // const route = useRoute();
-    fetch(`http://localhost:4000/allOutfits/${this.useremail}`)
+    fetch(`${process.env.VUE_APP_BACKEND_API}/allOutfits/${this.useremail}`)
       .then((response) => response.json())
       .then((result) => {
         this.outfits = result;
