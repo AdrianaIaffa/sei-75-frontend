@@ -41,8 +41,12 @@ export default {
     data: () => ({
         errors: '',
         item: {},
-        useremail: ''
+        // useremail: ''
     }),
+    setup() {
+    const useremail = ref("");
+    return { useremail };
+  },
     mounted() {
             if (this.$cookies.isKey("user_session")) {
             
@@ -54,8 +58,8 @@ export default {
             this.useremail = userData.email;
             console.log(userData.email)
         }
-            const route = useRoute()
-            fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${route.params.id}`, {
+            // const route = useRoute()
+            fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${this.useremail.id}`, {
             })
             .then(response => response.json())
             .then(result => {
@@ -65,9 +69,9 @@ export default {
         }, methods: {
           deleteItem: function () {
             // console.log(this.title._id)
-            const route = useRoute()
+            // const route = useRoute()
             // fetch(`${process.env.VUE_APP_BACKEND_API}/books/titledetails/${route.params.id}`,{
-            fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${route.params.id}`,{
+            fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${this.useremail.id}`,{
                 method: "DELETE"
             })
             .then(() => {
