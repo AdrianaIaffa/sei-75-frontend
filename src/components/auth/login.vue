@@ -169,7 +169,7 @@ export default {
       //Finally, the user's first name is extracted from the decoded data and stored in the userName variable.
       this.userName = userData.given_name;
       this.$cookies.set("user_session", response.credential);
-      fetch("http://localhost:4000/user/login", {
+      fetch(`${process.env.VUE_APP_BACKEND_API}/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

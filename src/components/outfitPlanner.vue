@@ -193,7 +193,7 @@ export default {
 
       console.log("selectedItems:", this.selectedItems);
 
-      fetch(`http://localhost:4000/outfitPlanner/${this.useremail}`, {
+      fetch(`${process.env.VUE_APP_BACKEND_API}/outfitPlanner/${this.useremail}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

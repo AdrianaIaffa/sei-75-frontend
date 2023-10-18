@@ -55,7 +55,7 @@ export default {
             console.log(userData.email)
         }
             const route = useRoute()
-            fetch(`http://localhost:4000/singleitem/${route.params.id}`, {
+            fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${route.params.id}`, {
             })
             .then(response => response.json())
             .then(result => {
@@ -64,9 +64,9 @@ export default {
         })
         }, methods: {
           deleteItem: function () {
-            console.log(this.title._id)
+            // console.log(this.title._id)
             const route = useRoute()
-            // fetch(`http://localhost:4000/books/titledetails/${route.params.id}`,{
+            // fetch(`${process.env.VUE_APP_BACKEND_API}/books/titledetails/${route.params.id}`,{
             fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${route.params.id}`,{
                 method: "DELETE"
             })
