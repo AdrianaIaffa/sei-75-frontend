@@ -35,7 +35,8 @@
 
 <script>
 import { decodeCredential } from "vue3-google-login";
-import { useRoute } from 'vue-router';
+// import { useRoute } from 'vue-router';
+import { ref } from "vue";
 export default {
     name: 'singleItem',
     data: () => ({
