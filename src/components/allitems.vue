@@ -47,6 +47,7 @@
         .then((response) => response.json())
         .then((result) => {
           this.items = result;
+          console.log("this items", result)
         })
         .catch((error) => {
           console.error("Error fetching wardrobe items:", error);
