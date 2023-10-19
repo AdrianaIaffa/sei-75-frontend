@@ -41,7 +41,9 @@ export default {
     name: 'singleItem',
     data: () => ({
         errors: '',
-        item: {},
+        item: {
+          id:''
+        },
         // useremail: ''
     }),
     setup() {
@@ -68,6 +70,9 @@ export default {
                 console.log(result)
         })
         }, methods: {
+          logItemId() {
+            console.log(this.item.id);
+        },
           deleteItem: function () {
             // const id = this.$route.params.id;
             // console.log(this.$route.params.id)
