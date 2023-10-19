@@ -70,11 +70,11 @@ export default {
         }, methods: {
           deleteItem: function () {
             const id = this.$route.params.id;
-            console/log(this.$route.params.id)
+            console.log(this.$route.params.id)
             // console.log(this.title._id)
             // const route = useRoute()
             // fetch(`${process.env.VUE_APP_BACKEND_API}/books/titledetails/${route.params.id}`,{
-            fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${this.id}`,{
+            fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${id}`,{
                 method: "DELETE"
             })
             .then(() => {
