@@ -72,7 +72,7 @@ export default {
             // console.log(this.title._id)
             // const route = useRoute()
             // fetch(`${process.env.VUE_APP_BACKEND_API}/books/titledetails/${route.params.id}`,{
-            fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${itemId}`,{
+            fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${item.id}`,{
                 method: "DELETE"
             })
             .then(() => {
