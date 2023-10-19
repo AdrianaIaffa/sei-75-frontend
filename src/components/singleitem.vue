@@ -71,9 +71,10 @@ export default {
           deleteItem: function () {
             // const id = this.$route.params.id;
             // console.log(this.$route.params.id)
-            const useremail = this.useremail.value;
-            console.log(useremail)
-            // console.log(this.title._id)
+            // const useremail = this.useremail.value;
+            // console.log(useremail)
+            const itemid = item._id
+            console.log(itemid)
             // const route = useRoute()
             // fetch(`${process.env.VUE_APP_BACKEND_API}/books/titledetails/${route.params.id}`,{
             fetch(`${process.env.VUE_APP_BACKEND_API}/singleitem/${useremail.id}`,{
