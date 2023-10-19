@@ -71,7 +71,7 @@ export default {
           deleteItem: function () {
             // const id = this.$route.params.id;
             // console.log(this.$route.params.id)
-            const useremail = this.useremail;
+            const useremail = this.useremail.value;
             console.log(useremail)
             // console.log(this.title._id)
             // const route = useRoute()
