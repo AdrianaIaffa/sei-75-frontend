@@ -44,6 +44,7 @@ export default {
         item: {
           id:''
         },
+        message: ''
         // useremail: ''
     }),
     setup() {
@@ -86,7 +87,10 @@ export default {
                 method: "DELETE"
             })
             .then(() => {
-                this.$router.replace({name: 'allWardrobeItems'})
+              console.log(this.$router)
+              this.message = "Item deleted";
+                // this.$router.replace({name: 'allWardrobeItems'})
+                // useremail.replace({name: 'allWardrobeItems'  })
             })
         } 
     }
