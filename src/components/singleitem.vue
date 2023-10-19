@@ -23,6 +23,7 @@
             Delete Item
           </button>
         </div>
+        <div v-if="message" class="message">{{ message }}</div> 
       </div>
     </div>
   </div>
