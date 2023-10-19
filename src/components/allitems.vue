@@ -26,15 +26,19 @@
   
   <script>
   import { decodeCredential } from "vue3-google-login";
-  
+  import { ref } from "vue";
   export default {
     name: "allWardrobeItems",
     data: () => ({
       items: {},
-      useremail: "",
+      // useremail: "",
       isLoggedIn: false,
       userName: "",
     }),
+    setup() {
+    const useremail = ref("");
+    return { useremail };
+  },
     mounted() {
       if (this.$cookies.isKey("user_session")) {
         this.isLoggedIn = true;
