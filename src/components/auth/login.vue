@@ -179,8 +179,8 @@ export default {
         }),
       }).then(() => {
         console.log("session saved");
-        this.$router.go()
-        this.$router.push({ name: "addWardrobeItem" });
+        this.$router.go({name: 'allWardrobeItems', params: { userEmail: this.useremail }})
+        // this.$router.push({ name: "addWardrobeItem" });
       });
     },
     handleLogOut: function () {
