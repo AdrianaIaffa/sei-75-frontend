@@ -179,6 +179,7 @@ export default {
         }),
       }).then(() => {
         console.log("session saved");
+        this.$router.go()
         this.$router.push({ name: "addWardrobeItem" });
       });
     },
