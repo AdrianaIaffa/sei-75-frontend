@@ -90,7 +90,7 @@ export default {
             .then(() => {
               console.log(this.$router)
               this.message = "Item deleted";
-                // this.$router.replace({name: 'allWardrobeItems'})
+                this.$router.replace({name: 'allWardrobeItems'})
                 // useremail.replace({name: 'allWardrobeItems'  })
             })
         } 
