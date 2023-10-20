@@ -88,7 +88,9 @@ export default {
                 method: "DELETE"
             })
             .then(() => {
+              this.useremail
               console.log(this.$router)
+              console.log('Navigating to allWardrobeItems route with userEmail:', this.useremail);
               this.message = "Item deleted";
                 this.$router.replace({name: 'allWardrobeItems'})
                 // useremail.replace({name: 'allWardrobeItems'  })
