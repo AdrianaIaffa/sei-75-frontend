@@ -92,7 +92,7 @@ export default {
               console.log(this.$router)
               console.log('Navigating to allWardrobeItems route with userEmail:', this.useremail);
               this.message = "Item deleted";
-                this.$router.replace({name: 'allWardrobeItems'})
+                this.$router.replace({name: 'allWardrobeItems', params: { userEmail: this.useremail }})
                 // useremail.replace({name: 'allWardrobeItems'  })
             })
         } 
