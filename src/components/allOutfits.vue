@@ -4,11 +4,15 @@
    <!-- <div class="item-card"></div> -->
 
       <div v-for="outfit in outfits.outfitItems" class="item-container" :key="outfit._id">
+        <div class="outfit-name">
         <h2>{{ outfit.outfitName }}</h2>
+      </div>
         <!-- Add this block of code to log selectedItems -->
+        <div class="outfit-items">
         <div class="image-container">
         <div v-for="selectedItem in outfit.selectedItems" :key="selectedItem._id" >
         <img :src="selectedItem.picture" :alt="selectedItem.category" class="item-picture" />
+      </div>
       </div>
     </div>
           </div>
@@ -82,6 +86,19 @@ export default {
   justify-content: center; /* Center items horizontally */
  
   }
+
+  .outfit-name {
+  width: 100%; /* Make the outfit name take up the full width */
+  text-align: center; /* Center-align the text */
+  margin-bottom: 10px; /* Add spacing between the outfit name and items */
+}
+
+.outfit-items {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center-align items */
+}
+
  .image-container {
     display: flex;
     flex-wrap: wrap;
