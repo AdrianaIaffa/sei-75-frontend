@@ -27,6 +27,8 @@ Netlify
 
 **Deployed Version**
 https://stupendous-truffle-16e88c.netlify.app/login
+![Screenshot 2023-12-11 at 14 34 32](https://github.com/AdrianaIaffa/sei-75-frontend/assets/100214999/ecdb2d25-8179-485a-9ed7-f52a6bf586ce)
+
 
 **Code Installation**
 Clone or download repo
