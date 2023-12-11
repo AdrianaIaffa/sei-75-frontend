@@ -2,28 +2,28 @@
 7 days solo project
 
 Technical Requirements:
-Have at least 2 data entities (data resources) in addition to the User Model:
-One main functional entity and another with a One:Many or Many:Many relationship (embedded or referenced).
-Use OAuth authentication.
-Implement basic authorization:
-Restrict access to features requiring a logged-in user (CUD data operations) using the ensureLoggedIn middleware.
-Allow editing and deletion of a data resource only by the user who created it.
-Have full-CRUD data operations somewhere within the app's features.
-Be styled for a polished user interface:
-The app should resemble the look and feel of daily-use applications.
-Be deployed online
+-Have at least 2 data entities (data resources) in addition to the User Model:
+-One main functional entity and another with a One:Many or Many:Many relationship (embedded or referenced).
+-Use OAuth authentication.
+-Implement basic authorization:
+-Restrict access to features requiring a logged-in user (CUD data operations) using the ensureLoggedIn middleware.
+-Allow editing and deletion of a data resource only by the user who created it.
+-Have full-CRUD data operations somewhere within the app's features.
+-Be styled for a polished user interface:
+-The app should resemble the look and feel of daily-use applications.
+-Be deployed online
 
 
 **Technologies Used**
-Outfit Forecast is built using the MEVN (MongoDB, Express, Vue.js, Node.js) stack, and it utilizes a RESTful API for seamless data retrieval and management.
-MongoDB: Database to store your wardrobe data.
-Express.js: Backend framework for handling API requests.
-Vue.js: Frontend framework for creating a user-friendly interface.
-Node.js: Runtime environment for server-side code.
-Git/Github
-Imgur to store and upload images
-Coolors
-Netlify
+-Outfit Forecast is built using the MEVN (MongoDB, Express, Vue.js, Node.js) stack, and it utilizes a RESTful API for seamless data retrieval and management.
+-MongoDB: Database to store your wardrobe data.
+-Express.js: Backend framework for handling API requests.
+-Vue.js: Frontend framework for creating a user-friendly interface.
+-Node.js: Runtime environment for server-side code.
+-Git/Github
+-Imgur to store and upload images
+-Coolors
+-Netlify
 
 **Deployed Version**
 https://stupendous-truffle-16e88c.netlify.app/login
