@@ -28,6 +28,9 @@ Technical Requirements:<br>
 **Deployed Version**<br>
 https://stupendous-truffle-16e88c.netlify.app/login
 
+you can find the backend for this project here<br>
+https://github.com/AdrianaIaffa/sei-75-backend
+
 **Wireframe**<br>
 I plan the website using trello. This was my first time planning a website and I guess I wasn't sure what would be the best way to do so. I tried trello for this project as it seemed like a good idea at the time. I can move the cards
 around and I can add more notes in each if I want to, which is quite handy. I am still figuring out whats the best tool for me.
