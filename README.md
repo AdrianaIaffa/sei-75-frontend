@@ -2,8 +2,8 @@
 7 days solo project
 
 Technical Requirements:<br>
-Have at least 2 data entities (data resources) in addition to the User Model<br>
-One main functional entity and another with a One:Many or Many:Many relationship (embedded or referenced).<br>
+-Have at least 2 data entities (data resources) in addition to the User Model<br>
+-One main functional entity and another with a One:Many or Many:Many relationship (embedded or referenced).<br>
 -Use OAuth authentication.<br>
 -Implement basic authorization<br>
 -Restrict access to features requiring a logged-in user (CUD data operations) using the ensureLoggedIn middleware.<br>
