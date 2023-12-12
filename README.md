@@ -1,47 +1,47 @@
-**Timeframe**
+**Timeframe**<br>
 7 days solo project
 
-Technical Requirements:
--Have at least 2 data entities (data resources) in addition to the User Model:
--One main functional entity and another with a One:Many or Many:Many relationship (embedded or referenced).
--Use OAuth authentication.
--Implement basic authorization:
--Restrict access to features requiring a logged-in user (CUD data operations) using the ensureLoggedIn middleware.
--Allow editing and deletion of a data resource only by the user who created it.
--Have full-CRUD data operations somewhere within the app's features.
--Be styled for a polished user interface:
--The app should resemble the look and feel of daily-use applications.
--Be deployed online
+Technical Requirements:<br>
+Have at least 2 data entities (data resources) in addition to the User Model<br>
+One main functional entity and another with a One:Many or Many:Many relationship (embedded or referenced).<br>
+-Use OAuth authentication.<br>
+-Implement basic authorization<br>
+-Restrict access to features requiring a logged-in user (CUD data operations) using the ensureLoggedIn middleware.<br>
+-Allow editing and deletion of a data resource only by the user who created it.<br>
+-Have full-CRUD data operations somewhere within the app's features.<br>
+-Be styled for a polished user interface<br>
+-The app should resemble the look and feel of daily-use applications.<br>
+-Be deployed online<br>
 
 
-**Technologies Used**
--Outfit Forecast is built using the MEVN (MongoDB, Express, Vue.js, Node.js) stack, and it utilizes a RESTful API for seamless data retrieval and management.
--MongoDB: Database to store your wardrobe data.
--Express.js: Backend framework for handling API requests.
--Vue.js: Frontend framework for creating a user-friendly interface.
--Node.js: Runtime environment for server-side code.
--Git/Github
--Imgur to store and upload images
--Coolors
--Netlify
+**Technologies Used**<br>
+-Outfit Forecast is built using the MEVN (MongoDB, Express, Vue.js, Node.js) stack, and it utilizes a RESTful API for seamless data retrieval and management.<br>
+-MongoDB: Database to store your wardrobe data.<br>
+-Express.js: Backend framework for handling API requests.<br>
+-Vue.js: Frontend framework for creating a user-friendly interface.<br>
+-Node.js: Runtime environment for server-side code.<br>
+-Git/Github<br>
+-Imgur to store and upload images<br>
+-Coolors<br>
+-Netlify<br>
 
-**Deployed Version**
+**Deployed Version**<br>
 https://stupendous-truffle-16e88c.netlify.app/login
 ![Screenshot 2023-12-11 at 14 34 32](https://github.com/AdrianaIaffa/sei-75-frontend/assets/100214999/ecdb2d25-8179-485a-9ed7-f52a6bf586ce)
 
 
-**Code Installation**
-Clone or download repo
-Instal npm
-Start with npm run serve
-Backend node server.js
+**Code Installation**<br>
+Clone or download repo<br>
+Instal npm<br>
+Start with npm run serve<br>
+Backend node server.js<br>
 
 I wanted to create the website imagined in the clueless film, where you can pick an outfit for the day through a computer. I love fashion but also I want to create an app that has sustainability at its core. By digitising your wardrobe you can always access what you have, keep track of all your items and create new outfit ideas on the go
 ![Screenshot 2023-12-11 at 14 44 33](https://github.com/AdrianaIaffa/sei-75-frontend/assets/100214999/81ed0d5f-b8d6-465e-b3d7-19ade0b7c0c2)
 
 
 
-This is my first full stack project.
+This is my first full stack project.<br>
 
 Day 1 was spent planning. I made a rough planning of my project on trello and moved to the database
 I wanted to have a schema based on uploading the images and categorising them  with a drop down menu. By presetting the categories it was easier to create an outfit later of as it would be divided in 5 tops', 'bottoms', 'outwears', 'accessories', 'shoes' and those then where sub categorised 'long sleeve', 'short sleeve', 'sleeveless', 'skirts', 'shorts', 'trousers', 'coats', 'jackets', 'bags', 'scarfs', 'headwear', 'boots', 'shoes', 'sandals'.
@@ -84,7 +84,7 @@ ecast](https://github.com/AdrianaIaffa/sei-75-frontend/assets/100214999/b974b38e
 
 
 
-Takeaways from this project.
+Takeaways from this project.<br>
 I underestimated the amount of work that was needed for the most basic part of this application. I would have loved to create a much more complex idea, but I found connecting the backend to the front end an absolute nightmare! I kept getting stuck because I didnt know how to send my id from the front end to the backend. I had quite a lof of help from my teacher on that aspect of my project. My backend is full of notes but I needed to add them to explain myself how things work. But this was my frist CRUD app and I am really excited about how it came out. I had a pretty strong idea on how I wanted things to work, which meant that the planning and visualising was easy. I also had a few bugs where I couldnt see the log in nav bar once the user had logged in so I had to create a window redirect which is not ideal but I guess it works.
 I also spend an entire day doing the styling, using my photography portfolio as content and it just made me realised how much I love CSS and doing the desing!
 
