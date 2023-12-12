@@ -48,30 +48,27 @@ I wanted to create the website imagined in the clueless film, where you can pick
 This is my first full stack project.<br>
 
 Day 1 was spent planning. I made a rough planning of my project on trello and moved to the database
-I wanted to have a schema based on uploading the images and categorising them  with a drop down menu. By presetting the categories it was easier to create an outfit later of as it would be divided in 5 tops', 'bottoms', 'outwears', 'accessories', 'shoes' and those then where sub categorised 'long sleeve', 'short sleeve', 'sleeveless', 'skirts', 'shorts', 'trousers', 'coats', 'jackets', 'bags', 'scarfs', 'headwear', 'boots', 'shoes', 'sandals'.
+I wanted to have a schema based on uploading the images and categorising them  with a drop down menu. By presetting the categories it was easier to create an outfit later since it would be divided by 'tops', 'bottoms', 'outwears', 'accessories', 'shoes'. Each would have a sub category 'long sleeve', 'short sleeve', 'sleeveless', 'skirts', 'shorts', 'trousers', 'coats', 'jackets', 'bags', 'scarfs', 'headwear', 'boots', 'shoes', 'sandals'.
 
-Day 2/4 was spend creating the endpoints of the back end and connecting those to the front end. I found this pretty challenging as the wardrobe items were linked to a user id, so I only wanted to display what the user had uploaded to their account. I did that by linking the user schema and referencing it on my wardrobe schema. The biggest issue I faced was uploading images. I tried to add Cloudinary to upload my images but I could not make it work. After spending most of a day trying to figure it out, I abandoned it and decided to use Imgur instead. So when I upload the images, I am uploading the link to imgur. Once uploaded i created a preview so the user can see the image uploaded.
+Day 2/4 was spend creating the endpoints of the back end and connecting those to the front end. I found this pretty challenging as the wardrobe items were linked to a user id, so I only wanted to display what the user had uploaded to their account. I did that by linking the user schema and referencing it on my wardrobe schema. The biggest issue I faced was uploading images. I tried to add Cloudinary to upload my images but I could not make it work. After spending most of a day trying to figure it out, I abandoned it and decided to use Imgur instead. So when I upload the images, I am uploading the link to imgur. Once uploaded I created a preview so the user can see the image uploaded. This is not ideal, since to use this app you must first use Imgur, but I had a limited time and had spent too long with cloudinary.
 
 Days 5/6
-Once I had the wardrobe items uploaded and I had my wardrobe done, I added the outfit schema. It needed to retrieve all the items for a specific user and then map through them to create a new array with the items chosen to create an outfit.
+Once I had the wardrobe items uploaded and I had my wardrobe done, I added the outfit schema. It needed to retrieve all the items for a specific user and then map through them to create a new array with the items chosen to create an outfit. It was pretty difficult to understand at the time, and took me a long time to figure this out. I had to map through all the items of that specific user and create a new array.
 
     app.post('/outfitPlanner/:userEmail', async (req, response) => {
     const itemData = req.body;
-     console.log(itemData)
     const findUserid = await User.findOne({ "userEmail": itemData.useremail })
-    console.log("outfitplanner", findUserid)
 
     const newOutfit = new Outfit({
         outfitName: itemData.outfitName,
         selectedItems: itemData.selectedItems.map(item => item._id),
         userId: findUserid,
     });
-    console.log(newOutfit);
     newOutfit.save()
     .then(() => {
         response.sendStatus(200)
     })
-})
+    })
 
 Days 7 8 
 I added a blog schema. I wanted the blog to be accessed only by the page admin but I never got the chance to create a separate login and add admin features. But since I had a blog I ended up using it anyway as I thought it would be a nice touch. There is an addblogpost end point that is not linked but exist.
