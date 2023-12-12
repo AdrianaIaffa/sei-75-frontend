@@ -29,7 +29,7 @@ Technical Requirements:<br>
 https://stupendous-truffle-16e88c.netlify.app/login
 
 **Wireframe**<br>
-I plan the website using trello. this was my first time planning a website and I guess I wasn't sure what would be the best way to do so. I tried trello for this project as it seemed like a goo didea at the time. I can move the cards
+I plan the website using trello. This was my first time planning a website and I guess I wasn't sure what would be the best way to do so. I tried trello for this project as it seemed like a goo didea at the time. I can move the cards
 around and I can add more notes in each if I want to, which is quite handy. I am still figuring out whats the best tool for me.
 ![Screenshot 2023-12-11 at 14 34 32](https://github.com/AdrianaIaffa/sei-75-frontend/assets/100214999/ecdb2d25-8179-485a-9ed7-f52a6bf586ce)
 
